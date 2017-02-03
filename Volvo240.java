@@ -1,3 +1,4 @@
+package dit952.lab.b;
 //package dit952.lab1;
 import java.awt.*;
 
