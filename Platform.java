@@ -11,7 +11,7 @@ package dit952.lab.b;
  */
 public class Platform {
     private int angle;
-    /***/
+    /**Returns the current angle*/
     public int getAngle(){
         return angle;
     }

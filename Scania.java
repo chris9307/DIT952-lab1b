@@ -41,13 +41,13 @@ public class Scania extends Car{
     
     /**Decreases the angle as long as the current angle os within the range [0,69]*/
         public void increaseAngle(){
-        if(platform.getAngle()==70)
+        if(platform.getAngle()==0&&platform.getAngle()==69&&currentSpeed==0)
         {
-            
+         platform.increaseAngle();   
         }
         else
         {
-         platform.increaseAngle();   
+            
         }     
     }
     

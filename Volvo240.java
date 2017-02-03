@@ -19,15 +19,5 @@ public class Volvo240 extends Car{
         return enginePower * 0.01 * trimFactor;
     }
 
-    /**Makes the car go faster by increasing the current speed 
-     */
-    public void incrementSpeed(double amount){
-	 currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
-    }
-    /**Makes the car go slower by decreasing the current speed 
-    */
-
-    public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
-    }
+ 
 }

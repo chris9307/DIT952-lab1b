@@ -30,15 +30,7 @@ public class Saab95 extends Car{
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
-/**Makes the car go faster by increasing the current speed 
- */
-    public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-/**Makes the car go slower by decreasing the current speed */
-    public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
+
     
 
 

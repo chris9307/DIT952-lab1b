@@ -115,11 +115,17 @@ abstract public class Vehicle {
     /**Should be implemented in all subclasses to Car to reflect the speed factor of that particular model.*/
     abstract public double speedFactor();
 
-    /**Should be implemented in all subclasses to Car to decrement the speed of that particular model.*/
-    abstract public void incrementSpeed(double amount);
+     /**Makes the car go faster by increasing the current speed 
+     */
+    public void incrementSpeed(double amount){
+	 currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+    /**Makes the car go slower by decreasing the current speed 
+    */
 
-    /**Should be implemented in all subclasses to Car to increment the speed of that particular model.*/
-    abstract public void decrementSpeed(double amount);
+    public void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    }
     
     public int getXPos(){
         return x;
@@ -128,11 +134,12 @@ abstract public class Vehicle {
         return y;
     }
     
-    public void setXPos(){
+    public void setXPos(int x){
         this.x=x;
     }
     
-    public void setYPos(){
+    public void setYPos(int y){
         this.y=y;
     }
+    
 }
