@@ -13,7 +13,11 @@ abstract public class Vehicle {
      protected double currentSpeed; // The current speed of the car
      public enum Direction{UP,RIGHT,DOWN,LEFT};
      public Direction dir=Direction.RIGHT;
-     
+    public Vehicle(int x, int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
      /**Moves the car towards the right direction*/  
     public void move() {
       if(dir==Direction.LEFT){

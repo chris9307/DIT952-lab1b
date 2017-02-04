@@ -20,6 +20,11 @@ public abstract class Car extends Vehicle implements Movable {
     protected Color color; // Color of the car
     protected String modelName; // The car model name
     protected int size;
+    
+    public Car(int x,int y){
+        super(x,y);
+    }
+    
     /**Returns the numbers of doors of the car*/
     public int getNrDoors(){
       return nrDoors;

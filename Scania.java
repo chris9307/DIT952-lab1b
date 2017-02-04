@@ -15,7 +15,8 @@ import java.awt.Color;
  */
 public class Scania extends Car{
     private Platform platform=new Platform();
-    public Scania(){
+    public Scania(int x, int y){
+        super(x,y);
         nrDoors = 2;
         color = Color.black;
         enginePower = 125;
@@ -24,33 +25,36 @@ public class Scania extends Car{
     }
     @Override
     public double speedFactor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return enginePower*0.75;
     }
 
-    /**Decreases the angle as long as the current angle os within the range [1,70]*/
+    /**Decreases the angle as long as the current angle is within the range [1,70] and current speed is equal to 0*/
     public void decreaseAngle(){
-        if(platform.getAngle()==0)
+        if(platform.getAngle()>=1&&platform.getAngle()<=70&&currentSpeed==0)
         {
-            
+            System.out.println("Outside of valid range");
         }
         else
         {
-         platform.decreaseAngle();   
+            platform.decreaseAngle();   
         }     
     }
     
-    /**Decreases the angle as long as the current angle os within the range [0,69]*/
+     /**Decreases the angle as long as the current angle os within the range [0,69] and current speed is equal to 0*/
         public void increaseAngle(){
-        if(platform.getAngle()==0&&platform.getAngle()==69&&currentSpeed==0)
-        {
-         platform.increaseAngle();   
-        }
-        else
-        {
-            
-        }     
+            if(platform.getAngle()>=0&&platform.getAngle()<=69&&currentSpeed==0)
+            {
+                platform.increaseAngle();   
+            }
+            else
+            {
+                System.out.println("Outside of valid range");
+            }     
     }
+        
     
-    
+    public Platform getPlatform(){
+        return platform;
+    }
     
 }

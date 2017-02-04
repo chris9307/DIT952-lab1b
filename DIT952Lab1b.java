@@ -16,7 +16,22 @@ public class DIT952Lab1b {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       CarTransporter ct=new CarTransporter(1,1);
+       Car c=new Saab95(10,10);
+       Car c2=new Saab95(20,20);       
+       Car c3=new Volvo240(30,30);       
+       Car c4=new Volvo240(40,40);              
+       Car c5=new Volvo240(55,55);
+       
+       ct.load(c);
+       ct.load(c2);
+       ct.load(c3);
+       ct.load(c4);
+       ct.load(c5);       
+       ct.unload();
+       
+       
+       
     }
     
 }
