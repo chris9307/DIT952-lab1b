@@ -36,6 +36,7 @@ public class CarLoad {
     /**Update the coordinates of every car stored in the transport*/
     public void updateCoordinates(int x, int y){
         for(int i=0;i<cars.size();i++){
+            System.out.println("x: "+x+"  y:"+y);
             cars.get(i).setXPos(x);
             cars.get(i).setYPos(y);
         }

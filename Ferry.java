@@ -33,10 +33,11 @@ public Ferry(int x, int y){
     }
     
      /**Increases the angle as long as the current angle os within the range [0,69] and current speed is equal to 0*/
-        public void increaseAngle(){            
-            platform.setMaxAngle();                    
-        }
+    public void increaseAngle(){            
+        platform.setMaxAngle();                    
+    }
     
+    /**Moves the car transporter and updates the coordinates of the cars inside*/
     public void move(){
         super.move();
         load.updateCoordinates(this.x,this.y);

@@ -46,9 +46,7 @@ public abstract class Car extends Vehicle implements Movable {
        return size;
    }
 
-   //TODO speedfactor
-
-
+  
 
    
 }
