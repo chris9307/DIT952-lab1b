@@ -7,6 +7,7 @@ public class Scania extends Car{
     private Platform platform=new Platform();
     public Scania(int x, int y){
         super(x,y);
+        size=2;
         nrDoors = 2;
         color = Color.black;
         enginePower = 125;
@@ -22,11 +23,11 @@ public class Scania extends Car{
     public void decreaseAngle(){
         if(platform.getAngle()>=1&&platform.getAngle()<=70&&currentSpeed==0)
         {
-            System.out.println("Outside of valid range");
+          platform.decreaseAngle();    
         }
         else
         {
-            platform.decreaseAngle();   
+          System.out.println("Outside of valid range");
         }     
     }
     
@@ -42,6 +43,33 @@ public class Scania extends Car{
             }     
     }
         
+     /**Sets current speed to 0.1*/
+    @Override
+    public void startEngine(){
+      if(platform.getAngle()==0){
+          currentSpeed = 0.1;
+      }
+      else{
+          
+      }
+      
+    }
+    /**Gas can only increase the currentSpeed given an amount within [0,1]*/
+    @Override
+    public void gas(double amount){
+        if(amount<0 || amount>1)
+        {
+            
+            throw new IllegalArgumentException("Outside of [0,1]");
+        }
+        else if(platform.getAngle()!=0){
+            System.out.println("Can not gas when the platform is down");
+        }
+        else{
+            incrementSpeed(amount); 
+        }
+        
+    }
     
     public Platform getPlatform(){
         return platform;

@@ -10,11 +10,15 @@ import java.util.LinkedList;
 public class CarLoad {
     private LinkedList<Car>cars=new LinkedList<>();
     private int capacity=4;
+    private int sizeCapacity=2;
     /**Loads a car to the car carrier if it is 5 points near the transporter*/
     public void load(Car c,int x,int y){
-        if(c.getSize()>capacity){
+        if(cars.size()>capacity){
             System.out.println("Exceeded maximum capacity");
         }        
+        else if(c.getSize()>sizeCapacity){
+            System.out.println("Size to big");
+        }
         else if(!(Math.abs(c.getXPos() - x) < 5 && Math.abs(c.getYPos() - y) < 5)){
             System.out.println("The car is too far away");
         }
@@ -22,7 +26,6 @@ public class CarLoad {
           c.setXPos(x);
           c.setYPos(y);
           cars.add(c);
-          capacity-=c.getSize();
         }
              
     }
@@ -40,7 +43,6 @@ public class CarLoad {
     /**Update the coordinates of every car stored in the transport*/
     public void updateCoordinates(int x, int y){
         for(int i=0;i<cars.size();i++){
-            System.out.println("x: "+x+"  y:"+y);
             cars.get(i).setXPos(x);
             cars.get(i).setYPos(y);
         }

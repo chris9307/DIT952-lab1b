@@ -10,7 +10,7 @@ package dit952.lab.b;
  * @author Asus
  */
 public class Platform {
-    private int angle;
+    private int angle=0;
     
     /**Returns the current angle*/
     public int getAngle(){

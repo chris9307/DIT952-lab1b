@@ -11,7 +11,7 @@ public CarTransporter(int x, int y){
         color = Color.black;
         enginePower = 125;
 	    turboOn = false;
-        modelName="Scania";
+        modelName="Transporter";
     }
 
    
@@ -19,8 +19,7 @@ public CarTransporter(int x, int y){
     /**Loads a car to the car transporter*/
         public void load(Car c){
         
-            if(platform.getAngle()==0){
-                
+            if(platform.getAngle()==0){                
                 load.load(c,x,y);        
             }
             else{
@@ -31,7 +30,11 @@ public CarTransporter(int x, int y){
 
     /**Unloads a car from the car transporter FILO*/
     public void unload(){
-        load.unloadLast();
+        if(platform.getAngle()==0){
+            load.unloadLast();   
+        }
+            
+        
     }
     
     /**Decreases the angle to 0 if the car is not moving(currentSpeed=0)*/
@@ -51,13 +54,40 @@ public CarTransporter(int x, int y){
         load.updateCoordinates(x,y);
     }
      /**Increases the angle as long as the current angle os within the range [0,69] and current speed is equal to 0*/
-        public void increaseAngle(){            
-            platform.setMaxAngle();                    
-        }
+    public void increaseAngle(){                    
+        platform.setMaxAngle();                    
+    }
 
     @Override
     public double speedFactor() {
         return enginePower;
+    }
+    
+     /**Sets current speed to 0.1*/
+    @Override
+    public void startEngine(){
+      if(platform.getAngle()==0){
+          currentSpeed = 0.1;
+      }
+      else{
+          
+      }
+      
+    }
+    /**Gas can only increase the currentSpeed given an amount within [0,1]*/
+    @Override
+    public void gas(double amount){
+        if(amount<0 || amount>1)
+        {      
+            throw new IllegalArgumentException("Outside of [0,1]");
+        }
+        else if(platform.getAngle()!=0){
+            System.out.println("Can not gas when the platform is down");
+        }
+        else{
+            incrementSpeed(amount); 
+        }
+        
     }
 
 }
