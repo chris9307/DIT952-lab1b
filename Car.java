@@ -23,6 +23,7 @@ public abstract class Car extends Vehicle implements Movable {
     
     public Car(int x,int y){
         super(x,y);
+        this.x=x;
     }
     
     /**Returns the numbers of doors of the car*/

@@ -6,18 +6,18 @@
 package dit952.lab.b;
 
 public class Ferry extends Vehicle {
-CarLoad load=new CarLoad();
-Platform platform=new Platform();
+private CarLoad load=new CarLoad();
+private Platform platform=new Platform();
 public Ferry(int x, int y){
     super(x,y);
 }
     /**Loads a car to the Ferry*/
-    public void load(Car c){
-        load.load(c);
+    public void load(Car c,int x,int y){
+        load.load(c,x,y);
     }
-    /**Unloads a car from the Ferry*/
+    /**Unloads a car from the Ferry FIFO*/
     public void unload(){        
-        load.unloadLast();        
+        load.unloadFirst();        
     }
     
      /**Decreases the angle to 0 if the car is not moving(currentSpeed=0)*/
